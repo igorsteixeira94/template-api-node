@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  mobile:
+    build: .
+    command: yarn start
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/usr/src/mobile
+      - /usr/src/mobile/node_modules
+    container_name: templatemobile
+    stdin_open: true
+    tty: true
