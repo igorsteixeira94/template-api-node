@@ -3,7 +3,7 @@ import { Router } from 'express';
 const routes = new Router();
 
 routes.get('/', (req, res) => {
-  return res.json('Olá Mundo');
+  return res.json({message:'Template-Full-Stack !'});
 });
 
 export default routes;

@@ -1,14 +1,16 @@
 {
-  "name": "zhealth",
+  "name": "templateapi",
   "version": "1.0.0",
-  "main": "src/server.js",
   "author": "Igorsteixeira94 <igorsteixeira94@gmail.com>",
   "license": "MIT",
-  "description": "api para cadastro de prescrições medicas",
+  "description": "Template base para api",
+  "private": true,
+  "main": "src/server.js",
   "scripts": {
     "dev:server": "nodemon src/server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },

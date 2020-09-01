@@ -1,11 +1,12 @@
 import express from 'express';
 import routes from './routes';
+import cors from 'cors';
 import 'dotenv/config';
 
 class App {
   constructor() {
     this.express = express();
-
+    this.express.use(cors());
     this.middleware();
     this.routes();
   }

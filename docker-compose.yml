@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: api
+    command: yarn dev:server
+    ports:
+      - "3333:3333"
+    volumes:
+      - ./api:/usr/src/api
+      - /usr/src/api/node_modules
+
+  web:
+    container_name: web
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    image: web
+    command: yarn start
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./web:/usr/src/web
+      - /usr/src/web/node_modules
+    stdin_open: true
+    tty: true
+    links: 
+      - api
+
+  mobile:
+    container_name: mobile
+    build:
+      context: ./mobile
+      dockerfile: Dockerfile
+    image: mobile
+    command: yarn start
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./mobile:/usr/src/mobile
+      - /usr/src/mobile/node_modules
+    stdin_open: true
+    tty: true
